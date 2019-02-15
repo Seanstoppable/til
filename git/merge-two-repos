@@ -1,0 +1,12 @@
+I've had the reason to merge multiple repos together.
+In all cases, I have wanted to preserve file history as much as possible.
+
+This is pretty much the strategy that works for me:
+
+cd path/to/project-b
+git remote add project-a path/to/project-a
+git fetch project-a --tags
+git merge --allow-unrelated-histories project-a/master # or whichever branch you want to merge
+git remote remove project-a
+
+Resolve conflicts, test, and off you go!
